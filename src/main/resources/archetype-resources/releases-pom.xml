@@ -52,10 +52,6 @@
         <developerConnection>${symbol_dollar}{project.scm.developerConnection}</developerConnection>
         <url>${symbol_dollar}{project.scm.url}</url>
     </scm>
-    <issueManagement>
-        <system>jira</system>
-        <url>${symbol_dollar}{project.issueManagement.url}</url>
-    </issueManagement>
     <repositories>
         <repository>
             <id>forgerock-staging-repository</id>
