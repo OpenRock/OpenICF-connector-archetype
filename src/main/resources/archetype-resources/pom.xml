@@ -4,7 +4,7 @@
 <!--
   ~ DO NOT REMOVE COPYRIGHT NOTICES OR THIS HEADER.
   ~
-  ~ Copyright (c) 2014. ForgeRock AS. All rights reserved.
+  ~ Copyright (c) 2016. ForgeRock AS. All rights reserved.
   ~
   ~ The contents of this file are subject to the terms
   ~ of the Common Development and Distribution License
@@ -31,7 +31,8 @@
     <parent>
         <groupId>org.forgerock.openicf.connectors</groupId>
         <artifactId>connectors-parent</artifactId>
-        <version>${compatibility_version}.${framework_version}</version>
+        <!--version>${compatibility_version}.${framework_version}</version-->
+        <version>1.5.0.0-SNAPSHOT</version>
     </parent>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
@@ -39,25 +40,27 @@
     <packaging>bundle</packaging>
     <name>${connectorName} Connector</name>
     <description>Connector for ${connectorName}</description>
-    <url>https://openicf.forgerock.org/connectors/${artifactId}</url>
+    <url>http://openicf.forgerock.org/connectors/${artifactId}/</url>
     <issueManagement>
         <system>jira</system>
         <url>https://bugster.forgerock.org/jira/browse/OPENICF/component/10191</url>
     </issueManagement>
     <ciManagement>
         <system>jenkins</system>
-        <url>http://builds.forgerock.org/job/OpenICF - ${connectorName} Connector</url>
+        <url>https://ci.forgerock.org/view/OpenICF/job/OpenICF - ${artifactId} - postcommit/</url>
     </ciManagement>
     <scm>
-        <connection>scm:svn:https://svn.forgerock.org/openicf/trunk/connectors/java/${artifactId}</connection>
-        <developerConnection>scm:svn:https://svn.forgerock.org/openicf/trunk/connectors/java/${artifactId}</developerConnection>
-        <url>http://sources.forgerock.org/browse/openicf/trunk/connectors/java/${artifactId}</url>
+        <connection>scm:git:ssh://git@stash.forgerock.org:7999/openicf/${artifactId}.git</connection>
+        <developerConnection>scm:git:ssh://git@stash.forgerock.org:7999/openicf/${artifactId}.git</developerConnection>
+        <url>http://stash.forgerock.org/projects/OPENICF/repos/${artifactId}/browse</url>
     </scm>
     <properties>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
         <connectorPackage>${package}</connectorPackage>
         <connectorClass>${connectorName}Connector</connectorClass>
+        <framework.compatibilityVersion>${compatibility_version}</framework.compatibilityVersion>
+        <framework.releaseVersion>${framework_version}</framework.releaseVersion>
     </properties>
     <repositories>
         <repository>
@@ -78,7 +81,18 @@
         </repository>
     </repositories>
     <dependencies>
+        <dependency>
+            <groupId>org.forgerock.openicf.framework</groupId>
+            <artifactId>connector-framework</artifactId>
+        </dependency>
 
+        <!-- Provided Dependencies -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.testng</groupId>

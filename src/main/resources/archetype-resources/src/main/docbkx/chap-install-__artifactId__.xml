@@ -52,7 +52,7 @@
     </section>
 
     #if ( $poolableConnector == 'Y' || $poolableConnector == 'y' )
-    <section xml:id="connector-pooling-connectorname-${groupId}-${artifactId}-${symbol_dollar}{project.version}">
+    <section xml:id="connector-pooling-${package.replaceAll('\.','-')}-${connectorName}Connector-${symbol_dollar}{project.version}">
         <title>Configuring Connector Pooling</title>
         <para>
             TO BE WRITTEN MANUALLY

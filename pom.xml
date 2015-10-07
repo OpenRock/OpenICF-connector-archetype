@@ -3,7 +3,7 @@
 <!--
   ~ DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
   ~
-  ~ Copyright (c) 2011-2014. ForgeRock AS. All rights reserved.
+  ~ Copyright (c) 2011-2015. ForgeRock AS. All rights reserved.
   ~
   ~ The contents of this file are subject to the terms
   ~ of the Common Development and Distribution License
@@ -30,7 +30,7 @@
     <parent>
         <groupId>org.forgerock</groupId>
         <artifactId>forgerock-parent</artifactId>
-        <version>1.2.0</version>
+        <version>2.0.3</version>
     </parent>
     <groupId>org.forgerock.openicf</groupId>
     <artifactId>connector-archetype</artifactId>
@@ -46,12 +46,12 @@
     </issueManagement>
     <ciManagement>
         <system>jenkins</system>
-        <url>http://builds.forgerock.org/job/OpenICF - Connector Archetype</url>
+        <url>https://ci.forgerock.org/view/OpenICF/job/OpenICF - connector-archetype - postcommit/</url>
     </ciManagement>
     <scm>
-        <connection>scm:svn:https://svn.forgerock.org/openicf/trunk/connector-archetype</connection>
-        <developerConnection>scm:svn:https://svn.forgerock.org/openicf/trunk/connector-archetype</developerConnection>
-        <url>http://sources.forgerock.org/browse/openicf/trunk/connector-archetype</url>
+        <connection>scm:git:ssh://git@stash.forgerock.org:7999/openicf/connector-archetype.git</connection>
+        <developerConnection>scm:git:ssh://git@stash.forgerock.org:7999/openicf/connector-archetype.git</developerConnection>
+        <url>http://stash.forgerock.org/projects/OPENICF/repos/connector-archetype/browse</url>
     </scm>
     <distributionManagement>
         <site>
@@ -60,7 +60,7 @@
         </site>
     </distributionManagement>
     <properties>
-        <siteDistributionURL>scp://openicf.forgerock.org/var/www/vhosts/openicf.forgerock.org/httpdocs</siteDistributionURL>
+        <siteDistributionURL>scp://community.internal.forgerock.com/var/www/vhosts/openicf.forgerock.org/httpdocs</siteDistributionURL>
     </properties>
     <repositories>
         <repository>
@@ -80,19 +80,12 @@
             </releases>
         </repository>
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>forgerock-plugins-repository</id>
-            <name>ForgeRock Plugin Repository</name>
-            <url>http://maven.forgerock.org/repo/repo</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
         <dependency>
             <groupId>org.forgerock.openicf.connectors</groupId>
             <artifactId>connectors-parent</artifactId>
-            <version>1.4.1.0-RC1</version>
+            <version>1.5.0.0-SNAPSHOT</version>
             <type>pom</type>
         </dependency>
     </dependencies>
@@ -108,9 +101,9 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.apache.maven.archetype</groupId>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>2.2</version>
+                    <version>2.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -124,7 +117,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-invoker-plugin</artifactId>
-                <version>1.9</version>
+                <version>2.0.0</version>
                 <executions>
                     <execution>
                         <id>generate-projects</id>
@@ -135,7 +128,7 @@
                         <configuration>
                             <cloneProjectsTo>${project.build.directory}/it/projects</cloneProjectsTo>
                             <goals>
-                                <goal>org.apache.maven.plugins:maven-archetype-plugin:2.2:generate</goal>
+                                <goal>org.apache.maven.plugins:maven-archetype-plugin:2.4:generate</goal>
                             </goals>
                             <pomIncludes>
                                 <pomInclude>*</pomInclude>

@@ -23,7 +23,7 @@
   !
   ! CCPL HEADER END
   !
-  !      Copyright 2011-2014 ForgeRock AS
+  !      Copyright 2011-2016 ForgeRock AS
   !
 -->
 
@@ -39,16 +39,14 @@
     <version position="right"/>
     <googleAnalyticsAccountId>UA-23412190-10</googleAnalyticsAccountId>
     <body>
-        <breadcrumbs/>
         <menu name="Overview" img="images/arrow_right.png">
             <item name="Introduction" href="openicf-report.html"/>
-            <item name="FAQ" href="faq.html"/>
         </menu>
 
         <menu name="${connectorName} Core Docs">
             <item name="All Formats" href="docs.html" />
             <!--item name="Release Notes" href="./doc/release-notes/index.html" /-->
-            <item name="Developer Guide" href="./doc/${symbol_dollar}{project.artifactId}-${symbol_dollar}{project.version}/index.html" />
+            <item name="Installation Guide" href="./doc/bootstrap/${symbol_dollar}{project.artifactId}-${symbol_dollar}{project.version}/index.html" />
         </menu>
 
         <menu ref="reports"/>
